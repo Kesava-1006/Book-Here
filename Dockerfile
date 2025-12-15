@@ -14,8 +14,10 @@ FROM tomcat:9.0-jdk17-temurin
 # Remove default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Configure Tomcat to use Render PORT
-RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
+# Configure Tomcat to:
+# 1. Listen on Render PORT
+# 2. Bind to 0.0.0.0
+RUN sed -i 's/port="8080"/port="${PORT}" address="0.0.0.0"/' /usr/local/tomcat/conf/server.xml
 
 # Copy WAR
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
