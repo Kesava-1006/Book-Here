@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BookHere
 # Screenshots
 # Users screen
@@ -28,3 +29,6 @@
 ![image](https://user-images.githubusercontent.com/89993455/213703509-ba332d15-3a32-4e0a-b6ec-58cd04f523ff.png)
 ![image](https://user-images.githubusercontent.com/89993455/213703551-b6d0df85-ac68-4c89-89f3-a58818b0a978.png)
 
+=======
+# Book-Here
+>>>>>>> 7cb529a5e437bc20ef4c1701d21d9e9d20f32955
