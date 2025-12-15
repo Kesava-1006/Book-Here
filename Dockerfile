@@ -1,14 +1,14 @@
-# Use lightweight Java image
-FROM eclipse-temurin:17-jdk-alpine
+FROM tomcat:9.0-jdk17-temurin
 
-# Set working directory
-WORKDIR /app
+# Remove default Tomcat apps
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy built jar
-COPY target/*.jar app.jar
+# Copy WAR as ROOT app
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose Render port
+# Render uses dynamic port
+ENV PORT=8080
+
 EXPOSE 8080
 
-# Run Spring Boot
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["catalina.sh", "run"]
